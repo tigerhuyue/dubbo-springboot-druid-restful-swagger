@@ -1,0 +1,21 @@
+group 'com.station.grid'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'2.0.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version:'2.0.3.RELEASE'
+    compile group: 'com.alibaba.boot', name: 'dubbo-spring-boot-starter', version:'0.2.0'
+    compile group: 'com.alibaba.boot', name: 'dubbo-spring-boot-actuator', version:'0.2.0'
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.6.1'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.6.1'
+    compile project(':grid-api')
+}

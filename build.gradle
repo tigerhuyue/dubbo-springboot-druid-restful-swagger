@@ -1,0 +1,51 @@
+group 'com.station.grid'
+version '1.0-SNAPSHOT'
+
+
+buildscript {
+
+    ext.springboot_version = '1.5.13.RELEASE'
+
+    repositories {
+        mavenLocal()
+        maven { url "https://repo.maven.apache.org/maven2" }
+        maven { url "http://repo.spring.io/milestone" }
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "https://dl.bintray.com/rabbitmq/maven-milestones" }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springboot_version"
+
+    }
+}
+
+
+allprojects {
+    version = rootProject.version
+
+    repositories {
+        mavenLocal()
+        maven { url "https://repo.maven.apache.org/maven2" }
+        maven { url "http://repo.spring.io/milestone" }
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "https://dl.bintray.com/rabbitmq/maven-milestones" }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+
+    }
+}
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'com.alibaba.boot', name: 'dubbo-spring-boot-parent', version: '0.2.0'
+    compile(group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0') {
+    }
+}

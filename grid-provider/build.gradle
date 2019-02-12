@@ -1,0 +1,52 @@
+group 'com.station.grid'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+ext.srpingboot_version = '1.5.13.RELEASE'
+ext.dubooboot_version='0.2.0'
+ext.dubbo_version='2.6.2'
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'2.0.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version:'2.0.3.RELEASE'
+    compile group: 'com.alibaba.boot', name: 'dubbo-spring-boot-starter', version: '0.2.0'
+    compile group: 'com.alibaba.boot', name: 'dubbo-spring-boot-actuator', version: '0.2.0'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.46'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.0'
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.0.11.Final'
+    compile group: 'org.hibernate', name: 'hibernate-ehcache', version: '5.0.11.Final'
+    compile group: 'com.alibaba', name: 'druid', version:'1.1.9'
+    // https://mvnrepository.com/artifact/com.alibaba/fastjson
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.47'
+    compile(group: 'com.alibaba', name: 'dubbo', version: '2.6.2') {
+        exclude(module: 'spring')
+        exclude(module: 'servlet-api')
+        exclude(module: 'log4j')
+    }
+    compile project(':grid-api')
+    compile project(':grid-dao')
+
+    //----
+    compile 'com.alibaba:druid-spring-boot-starter:1.1.10'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.0.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-autoconfigure', version:'2.0.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version:'2.0.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'2.0.3.RELEASE'
+    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.25'
+    compile(group: 'javax.servlet', name: 'javax.servlet-api', version:'3.1.0') {
+        /* This dependency was originally in the Maven provided scope, but the project was not of type war.
+        This behavior is not yet supported by Gradle, so this dependency has been converted to a compile dependency.
+        Please review and delete this closure when resolved. */
+    }
+
+
+
+}
