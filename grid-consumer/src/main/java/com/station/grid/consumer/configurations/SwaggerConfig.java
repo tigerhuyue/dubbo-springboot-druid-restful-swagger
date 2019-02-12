@@ -33,6 +33,7 @@ public class SwaggerConfig {
                 if(declaringClass.isAnnotationPresent(RestController.class)) // 被注解的类
                     return true;
                 if(input.isAnnotatedWith(ResponseBody.class)) // 被注解的方法
+
                     return true;
                 return false;
             }
